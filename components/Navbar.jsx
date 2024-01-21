@@ -28,8 +28,8 @@ const Navbar = () => {
           Connect Wallet
         </button>
       )
-      }
-      <p>{currentAccount}</p>
+    }
+    <p>Connected wallet: {currentAccount}</p>
     </>
 
   )

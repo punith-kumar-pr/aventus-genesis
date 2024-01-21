@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useEffect } from 'react';
 import Link from 'next/link';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
@@ -14,10 +14,10 @@ import { TransactionContext } from "../context/TransactionContext";
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
+  const { totalPrice, setTotalQuantities,totalQuantities, cartItems, setCartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
   // const { connectWallet, currentAccount, createOrder, confirmPayment, revertPayment, confirmDelivery, paymentState, orderNum } = useContext(TransactionContext)
   
-  const { connectWallet, currentAccount, confirmPay, confirmDel, confirmRet } = useContext(TransactionContext)
+  const { connectWallet, currentAccount, confirmPay, confirmDel, confirmRet, paymentState, confirmState } = useContext(TransactionContext)
 
   const handleCreateOrder = async () => {
     // Call the createOrder function
@@ -26,6 +26,16 @@ const Cart = () => {
     console.log(order);
   };
 
+  useEffect(() => {
+    // Check the condition for updating the context array
+    if (confirmState) {
+      // Update the context array to an empty array
+      setCartItems([]);
+      setTotalQuantities(0);
+    }
+  }, [confirmState, setCartItems, setTotalQuantities]);
+
+  
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
@@ -39,6 +49,7 @@ const Cart = () => {
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
 
+        
         {cartItems.length < 1 && (
           <div className="empty-cart">
             <AiOutlineShopping size={150} />
@@ -55,6 +66,7 @@ const Cart = () => {
           </div>
         )}
 
+         
         <div className="product-container">
           {cartItems.length >= 1 && cartItems.map((item) => (
             <div className="product" key={item._id}>
@@ -86,17 +98,20 @@ const Cart = () => {
             </div>
           ))}
         </div>
+        
         {cartItems.length >= 1 && (
           <div className="cart-bottom">
             <div className="total">
               <h3>Subtotal:</h3>
               <h3>${totalPrice}</h3>
             </div>
-            <div className="btn-container">
+            {
+              !paymentState && (<div className="btn-container">
               <button type="button" className="btn" onClick={confirmPay}>
                 Pay
               </button>
-            </div>
+            </div>)
+            }
 
             <div className="btn-container">
               <button type="button" className="btn" onClick={confirmDel}>
@@ -116,6 +131,8 @@ const Cart = () => {
 
               
         )}
+
+        
       </div>
     </div>
   )

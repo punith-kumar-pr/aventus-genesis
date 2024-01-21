@@ -1,10 +1,10 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "D:\\hardhat tut\\contracts\\Lock.sol": {
-      "lastModificationDate": 1685110852929,
-      "contentHash": "ae66265769cc28ebdaa34881df95bc5e",
-      "sourceName": "contracts/Lock.sol",
+    "D:\\shop-secure\\contracts\\Arbit.sol": {
+      "lastModificationDate": 1700544139504,
+      "contentHash": "adef1b16d80812dae399e2a2df74d57d",
+      "sourceName": "contracts/Arbit.sol",
       "solcConfig": {
         "version": "0.8.18",
         "settings": {
@@ -30,16 +30,16 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.9"
+        ">=0.4.22 <0.9.0"
       ],
       "artifacts": [
-        "Lock"
+        "Arbit"
       ]
     },
-    "D:\\ecommerce sanity clone\\smart_contracts\\contracts\\Lock.sol": {
-      "lastModificationDate": 1685110852929,
-      "contentHash": "ae66265769cc28ebdaa34881df95bc5e",
-      "sourceName": "contracts/Lock.sol",
+    "D:\\shop-secure\\contracts\\final-v.sol": {
+      "lastModificationDate": 1702915629642,
+      "contentHash": "5b63fd89ff0153ab534cd5bc0615ce81",
+      "sourceName": "contracts/final-v.sol",
       "solcConfig": {
         "version": "0.8.18",
         "settings": {
@@ -65,16 +65,16 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.9"
+        ">=0.4.22 <0.9.0"
       ],
       "artifacts": [
-        "Lock"
+        "Final"
       ]
     },
-    "D:\\ecommerce sanity clone\\smart_contracts\\contracts\\ShopSecure.sol": {
-      "lastModificationDate": 1685685350984,
-      "contentHash": "a931a19bf171bf9ec66d17af41535e0c",
-      "sourceName": "contracts/ShopSecure.sol",
+    "D:\\shop-secure\\contracts\\Final.sol": {
+      "lastModificationDate": 1700544139505,
+      "contentHash": "0a44345d3284e2b34e898092d16c85fc",
+      "sourceName": "contracts/Final.sol",
       "solcConfig": {
         "version": "0.8.18",
         "settings": {
@@ -100,14 +100,14 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.9"
+        ">=0.4.22 <0.9.0"
       ],
       "artifacts": [
-        "OrderEscrow"
+        "Final"
       ]
     },
-    "D:\\ecommerce sanity clone\\smart_contracts\\contracts\\Kirua.sol": {
-      "lastModificationDate": 1685740792835,
+    "D:\\shop-secure\\contracts\\Kirua.sol": {
+      "lastModificationDate": 1700544139505,
       "contentHash": "cf0f183af13783c5bdbcadb0d02411c1",
       "sourceName": "contracts/Kirua.sol",
       "solcConfig": {
@@ -141,10 +141,10 @@
         "EscrowSol"
       ]
     },
-    "D:\\ecommerce sanity clone\\smart_contracts\\contracts\\Arbit.sol": {
-      "lastModificationDate": 1685766332912,
-      "contentHash": "dde515fc4743006cb0183c953d898d42",
-      "sourceName": "contracts/Arbit.sol",
+    "D:\\shop-secure\\contracts\\Lock.sol": {
+      "lastModificationDate": 1700544139505,
+      "contentHash": "ec3c7dc6d807b6b903e80a92dda2af08",
+      "sourceName": "contracts/Lock.sol",
       "solcConfig": {
         "version": "0.8.18",
         "settings": {
@@ -170,14 +170,14 @@
       },
       "imports": [],
       "versionPragmas": [
-        ">=0.4.22 <0.9.0"
+        "^0.8.9"
       ],
       "artifacts": [
-        "Arbit"
+        "Lock"
       ]
     },
-    "D:\\ecommerce sanity clone\\smart_contracts\\contracts\\New.sol": {
-      "lastModificationDate": 1685757153569,
+    "D:\\shop-secure\\contracts\\New.sol": {
+      "lastModificationDate": 1700544139505,
       "contentHash": "60467567b888950973531173158315fe",
       "sourceName": "contracts/New.sol",
       "solcConfig": {
@@ -209,6 +209,41 @@
       ],
       "artifacts": [
         "New"
+      ]
+    },
+    "D:\\shop-secure\\contracts\\ShopSecure.sol": {
+      "lastModificationDate": 1700544139505,
+      "contentHash": "a931a19bf171bf9ec66d17af41535e0c",
+      "sourceName": "contracts/ShopSecure.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.9"
+      ],
+      "artifacts": [
+        "OrderEscrow"
       ]
     }
   }

@@ -3,7 +3,10 @@ import { ethers } from 'ethers';
 
 import { contractAbi, contractAddress } from '../utils/constants';
 
+
 export const TransactionContext = React.createContext();
+
+
 
 // const { ethereum } = window;
 const getEthereumContract = () => {
@@ -26,7 +29,8 @@ const getEthereumContract = () => {
 
 export const TransactionProvider = ({ children }) => {
     const [currentAccount, setCurrentAccount] = useState('')
-    // const [paymentState, setPaymentState] = useState(0)
+    const [paymentState, setPaymentState] = useState(0)
+    const [confirmState, setConfirmState] = useState(0)
     // const [orderNum, setOrderNum] = useState()
 
     
@@ -85,7 +89,7 @@ export const TransactionProvider = ({ children }) => {
             value: ethers.utils.parseEther(amount),
             gasLimit: gasLimit
         });
-        
+        setPaymentState(1)
         console.log("confirm payment", pay)
         return pay;
       }
@@ -94,6 +98,7 @@ export const TransactionProvider = ({ children }) => {
         const gasLimit = 3000000;
         const transactionContract = getEthereumContract();
         const del = await transactionContract.confirm_Delivery({gasLimit: gasLimit})
+        setConfirmState(1)
         console.log("confirm delivery", del)
         return del
       }
@@ -102,8 +107,9 @@ export const TransactionProvider = ({ children }) => {
         const gasLimit = 3000000;
         const transactionContract = getEthereumContract();
         const ret = await transactionContract.ReturnPayment({gasLimit: gasLimit});
+        setConfirmState(1)
         console.log("confirm delivery", ret)
-        return del
+        return ret
       }
 
 
@@ -113,7 +119,7 @@ export const TransactionProvider = ({ children }) => {
     }, [])
 
     return (
-        <TransactionContext.Provider value={{ connectWallet, currentAccount, confirmPay, confirmDel, confirmRet}}>
+        <TransactionContext.Provider value={{ connectWallet, currentAccount, confirmPay, confirmDel, confirmRet, paymentState, confirmState}}>
             {children}
         </TransactionContext.Provider>
     )
